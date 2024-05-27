@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WebPrinter.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastReport, Version=2022.3.13.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c">
       <Private>True</Private>
@@ -200,7 +203,9 @@
   <ItemGroup>
     <None Include="Resources\WebPrinter.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="WebPrinter.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\yes.png" />
   </ItemGroup>
