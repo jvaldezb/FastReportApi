@@ -1,0 +1,12 @@
+D:\Cursos\Impresion\Sensei\Utilities\bin\Debug\Utilities.dll
+D:\Cursos\Impresion\Sensei\Utilities\bin\Debug\Utilities.pdb
+D:\Cursos\Impresion\Sensei\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\Cursos\Impresion\Sensei\Utilities\obj\Debug\Utilities.dll
+D:\Cursos\Impresion\Sensei\Utilities\obj\Debug\Utilities.pdb
+D:\Cursos\Impresion\Sensei\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+D:\Cursos\Impresion\WebPrinter\Utilities\bin\Debug\Utilities.dll
+D:\Cursos\Impresion\WebPrinter\Utilities\bin\Debug\Utilities.pdb
+D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.dll
+D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.pdb

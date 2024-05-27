@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Data.dll&#13;&#10;System.Xml.dll&#13;&#10;FastReport.Compat.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;FastReport.DataVisualization.dll&#13;&#10;Utilities.dll" ReportInfo.Created="05/09/2024 21:30:18" ReportInfo.Modified="05/17/2024 11:48:28" ReportInfo.CreatorVersion="2022.3.13.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+using Utilities;
+using System.Globalization;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    private string Importe 
+    {
+      get {
+        return ((string)Report.GetColumnValue(&quot;TICKET80.importe&quot;));
+      }
+    }
+    
+    private string ComisionDt 
+    {
+      get {
+        return ((string)Report.GetColumnValue(&quot;TICKET80.comision_dt&quot;));
+      }
+    }
+    
+    private string GastosAdministrativos
+    {
+      get {
+        return ((String)Report.GetColumnValue(&quot;TICKET80.gastos_administrativos&quot;));
+      }
+    }
+    
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      decimal importe = Utilities.Validation.Coalesce(Importe, 0);
+      decimal comisionDt = Utilities.Validation.Coalesce(ComisionDt, 0);
+      decimal gastosAdministrativos = Utilities.Validation.Coalesce(GastosAdministrativos, 0);
+      decimal total = importe + comisionDt + gastosAdministrativos;
+      
+      tbComisionDt.Text = comisionDt.ToString();
+      tbImporteTotal.Text = total.ToString();     
+      tbGastosAdministrativos.Text = gastosAdministrativos.ToString();
+      tbImporteTexto.Text = Utilities.Numalet.ToCardinal(Convert.ToString(total), new CultureInfo(&quot;en-US&quot;)).ToUpper() + &quot;SOLES&quot;;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="TICKET80" ReferenceName="TICKET80" DataType="System.Int32" Enabled="true">
+      <Column Name="impresora" DataType="System.String"/>
+      <Column Name="usuario" DataType="System.String"/>
+      <Column Name="St_documento_codigo" DataType="System.String"/>
+      <Column Name="St_documento_serie" DataType="System.Int64"/>
+      <Column Name="nro_Solicitud" DataType="System.Int64"/>
+      <Column Name="oficina_codigo_origen" DataType="System.String"/>
+      <Column Name="oficina_codigo_destino" DataType="System.String"/>
+      <Column Name="solicitud_fecha_hora" DataType="System.String"/>
+      <Column Name="beneficiario_docident" DataType="System.String"/>
+      <Column Name="beneficiario_id_cliente" DataType="System.String"/>
+      <Column Name="beneficiario_razon_social" DataType="System.String"/>
+      <Column Name="solicitante_id_cliente" DataType="System.String"/>
+      <Column Name="solicitante_razon_social" DataType="System.String"/>
+      <Column Name="comision_banco" DataType="System.String"/>
+      <Column Name="deposito_tipo" DataType="System.String"/>
+      <Column Name="deposito_destino" DataType="System.String"/>
+      <Column Name="deposito_nro_cuenta" DataType="System.String"/>
+      <Column Name="moneda" DataType="System.String"/>
+      <Column Name="importe" DataType="System.String"/>
+      <Column Name="comision_dt" DataType="System.String"/>
+      <Column Name="gastos_administrativos" DataType="System.String"/>
+      <Column Name="importe_pagado" DataType="System.String"/>
+      <Column Name="beneficiario_nro_celular" DataType="System.String"/>
+      <Column Name="solicitante_nro_celular" DataType="System.String"/>
+      <Column Name="anulacion_motivo" DataType="System.String"/>
+      <Column Name="anulacion_fecha_hora" DataType="System.String"/>
+      <Column Name="anulacion_usuario" DataType="System.String"/>
+      <Column Name="solicitud_obs" DataType="System.String"/>
+      <Column Name="st_estado" DataType="System.Int64"/>
+      <Column Name="st_autorizada" DataType="System.String"/>
+      <Column Name="tipo_giro" DataType="System.String"/>
+      <Column Name="deposito_nro_operacion" DataType="System.String"/>
+      <Column Name="autorizacion_estado" DataType="System.String"/>
+      <Column Name="createdAt" DataType="System.String"/>
+      <Column Name="formato" DataType="System.String"/>
+      <Column Name="cod_validacion" DataType="System.String"/>
+      <Column Name="oficina_origen" DataType="System.String"/>
+      <Column Name="oficina_destino" DataType="System.String"/>
+      <Column Name="operacion" DataType="System.String"/>
+      <Column Name="beneficiario_otros_datos" DataType="System.String"/>
+      <Column Name="solicitante_otros_datos" DataType="System.String"/>
+      <Column Name="deposito_entidad_codigo" DataType="System.String"/>
+      <Column Name="solicitud_msj" DataType="System.String"/>
+      <Column Name="autorizacion_fecha_hora" DataType="System.String"/>
+      <Column Name="autorizacion_usuario" DataType="System.String"/>
+      <Column Name="id_centro_poblado_destino" DataType="System.Int64"/>
+      <Column Name="updatedAt" DataType="System.DateTime"/>
+      <Column Name="op_usuario" DataType="System.String"/>
+      <Column Name="op_documento_codigo" DataType="System.String"/>
+      <Column Name="op_documento_serie" DataType="System.String"/>
+      <Column Name="op_nro_operacion" DataType="System.String"/>
+      <Column Name="op_fecha_hora" DataType="System.String"/>
+      <Column Name="op_observacion" DataType="System.String"/>
+      <Column Name="foto" DataType="System.String"/>
+      <Column Name="dictado_usuario" DataType="System.String"/>
+      <Column Name="dictado_fecha_hora" DataType="System.String"/>
+      <Column Name="solicitante_docident" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="55" PaperHeight="125" LeftMargin="2" TopMargin="5" RightMargin="1" BottomMargin="5" Watermark.Font="Arial, 60pt">
+    <DataBand Name="Data1" Width="196.56" Height="396.9" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="TICKET80">
+      <TextObject Name="Text5" Top="56.7" Width="66.15" Height="18.9" Text="Nro de giro:" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Top="75.6" Width="47.25" Height="18.9" Text="Fecha:" Font="Arial, 8pt"/>
+      <TextObject Name="Text7" Top="94.5" Width="56.7" Height="18.9" Text="Destino:" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Top="113.4" Width="75.6" Height="18.9" Text="Beneficiario:" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Top="132.3" Width="66.15" Height="18.9" Text="Remitente:" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Top="151.2" Width="56.7" Height="18.9" Text="Importe:" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Top="170.1" Width="66.15" Height="18.9" Text="Comisión:" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Top="189" Width="47.25" Height="18.9" Text="Otros:" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Top="207.9" Width="47.25" Height="18.9" Text="Total:" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Top="226.8" Width="56.7" Height="18.9" Text="Código:" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="56.7" Top="94.5" Width="141.75" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[TICKET80.oficina_destino]" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="75.6" Top="113.4" Width="122.85" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[TICKET80.beneficiario_razon_social]" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text21" Left="66.15" Top="132.3" Width="132.3" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[TICKET80.solicitante_razon_social]" Font="Arial, 8pt"/>
+      <TextObject Name="Text22" Left="56.7" Top="151.2" Width="141.75" Height="18.9" Text="[TICKET80.importe]" Font="Arial, 8pt"/>
+      <TextObject Name="tbComisionDt" Left="66.15" Top="170.1" Width="132.3" Height="18.9" Text="[TICKET80.comision_dt]" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Left="56.7" Top="226.8" Width="141.75" Height="18.9" Text="[TICKET80.cod_validacion]" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="tbImporteTexto" Top="245.7" Width="198.45" Height="18.9" CanGrow="true" GrowToBottom="true" Font="Arial, 8pt"/>
+      <TextObject Name="Text26" Left="66.15" Top="56.7" Width="132.3" Height="18.9" Text="[TICKET80.nro_Solicitud]" Font="Arial, 8pt"/>
+      <TextObject Name="Text27" Left="47.25" Top="75.6" Width="151.2" Height="18.9" Text="[TICKET80.solicitud_fecha_hora]" Font="Arial, 8pt"/>
+      <TextObject Name="tbImporteTotal" Left="47.25" Top="207.9" Width="151.2" Height="18.9" Font="Arial, 8pt"/>
+      <TextObject Name="tbGastosAdministrativos" Left="47.25" Top="189" Width="151.2" Height="18.9" Font="Arial, 8pt"/>
+      <TextObject Name="Text28" Top="321.3" Width="75.6" Height="18.9" Text="[TICKET80.usuario]" Font="Arial, 8pt"/>
+      <TextObject Name="Text29" Top="302.4" Width="75.6" Height="18.9" Text="------------------" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text30" Left="94.5" Top="302.4" Width="103.95" Height="18.9" Text="---------------------------" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text31" Left="94.5" Top="321.3" Width="103.95" Height="28.35" Text="Nombre:................&#13;&#10;............................" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text33" Left="94.5" Top="349.65" Width="103.95" Height="18.9" Text="DNI ........................" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text34" Top="368.55" Width="198.45" Height="28.35" Text="visite www.money.com.pe o nuestro&#13;&#10;fanpage facebook.com/Moneyexpress" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Top="37.8" Width="198.45" Height="18.9" Text="Solicitud de Giro" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Top="18.9" Width="66.15" Height="18.9" Text="Oficinas: " HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="66.15" Top="18.9" Width="217.35" Height="18.9" Text="WANCHAQ CUSCO" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text1" Width="198.45" Height="18.9" Text="Money Express Center" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>
