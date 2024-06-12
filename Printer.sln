@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34407.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrinter", "WebPrinter\WebPrinter.csproj", "{36038934-CF2A-4B33-8FDC-CCCCFA80118A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastReportApi", "FastReportApi\FastReportApi.csproj", "{36038934-CF2A-4B33-8FDC-CCCCFA80118A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{ECAADEA8-351C-47F1-80ED-119C3BD5C822}"
 EndProject
