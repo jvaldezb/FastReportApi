@@ -35,6 +35,7 @@ namespace FastReportApi
         string _reportName;
         string _jsonData;
         string _impresora;
+        string _lista_tablas;
         NumTable _numTable = NumTable.Unica;
         string _puerto = "55677";
         string _operacion;
@@ -214,9 +215,22 @@ namespace FastReportApi
         }        
 
         void RegisterDataObject()
-        {            
-            DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(_jsonData, typeof(DataTable));
-            report.RegisterData(dataTable, _formato);
+        {
+            if (_lista_tablas == null)
+            {
+                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(_jsonData, typeof(DataTable));
+                report.RegisterData(dataTable, _formato);               
+            }
+            else
+            {
+                var listaTablas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TablasReporte>>(_lista_tablas);
+
+                foreach (var item in listaTablas)
+                {
+                    DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(Convert.ToString(item.ListaTabla), typeof(DataTable));
+                    report.RegisterData(dataTable, item.NombreTabla);
+                }
+            }
         }
 
         private void btDisenear_Click(object sender, EventArgs e)
@@ -254,7 +268,10 @@ namespace FastReportApi
                 _impresora = requestData["impresora"]?.ToString();
                 _formato = requestData["formato"]?.ToString();
                 _operacion = requestData["operacion"]?.ToString();
+                _lista_tablas = requestData["lista_tablas"]?.ToString();
                 _reportName += _formato + ".frx";
+
+                #region operación
 
                 if (_operacion != null)
                 {
@@ -289,6 +306,17 @@ namespace FastReportApi
                     else
                         btPreviewOneTable.PerformClick();
                 }
+
+                #endregion
+
+                #region lista_tablas
+
+                if (_lista_tablas != null)
+                {
+
+                }
+
+                #endregion
             };
 
             EventoComun.OnReportCommand += (int command) =>

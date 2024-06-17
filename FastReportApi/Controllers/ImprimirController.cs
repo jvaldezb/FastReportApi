@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Web.Http;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
@@ -79,7 +75,7 @@ namespace FastReportApi.Controllers
                       {
                         // Log de la excepción interna del evento
                         // Log.Error(ex); // Suponiendo que tengas un sistema de logging
-                    }
+                      }
                   });
 
                 // Enviar una respuesta
