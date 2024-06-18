@@ -215,7 +215,7 @@ namespace FastReportApi
         }        
 
         void RegisterDataObject()
-        {
+        {            
             if (_lista_tablas == null)
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(_jsonData, typeof(DataTable));
@@ -244,7 +244,9 @@ namespace FastReportApi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            EventoComun.OnPrintRemoteFrxData += (RemoteFrxData remoteFrxData) => {
+            EventoComun.OnPrintRemoteFrxData += (RemoteFrxData remoteFrxData) => 
+            {
+                report = new Report();
 
                 _reportName = GetReportsFolder();
                 _reportName += remoteFrxData.FileName;
@@ -260,6 +262,8 @@ namespace FastReportApi
 
             EventoComun.OnPrintLocalFrxData += (LocalFrxData localFrxData) =>
             {
+                report = new Report();
+
                 _reportName = GetReportsFolder();
 
                 _jsonData = Util.NormalizeJsonTable(localFrxData.JsonData);
@@ -368,17 +372,27 @@ namespace FastReportApi
 
         private void btDesignOneTable_Click(object sender, EventArgs e)
         {
+            report.Dictionary.Clear();
             report.Load(_reportName);
 
             RegisterDataObject();
 
             report.Design();
+
+            // Importante: Reiniciar el diseñador para asegurar que se reflejen los cambios
+            //using (FastReport.Design.Designer designer = new FastReport.Design.Designer())
+            //{
+            //    designer.Report = report;
+            //    designer.Refresh();
+            //    designer.Show();
+            //}            
         }
 
         private void btPrintOneTable_Click(object sender, EventArgs e)
         {
             try
             {
+                report.Dictionary.Clear();
                 report.Load(_reportName);
 
                 RegisterDataObject();
@@ -395,11 +409,21 @@ namespace FastReportApi
 
         private void btPreviewOneTable_Click(object sender, EventArgs e)
         {
+            report.Dictionary.Clear();
             report.Load(_reportName);
 
             RegisterDataObject();
 
             report.Show(false);
+
+            // Importante: Reiniciar el diseñador para asegurar que se reflejen los cambios
+            //using (FastReport.Design.Designer designer = new FastReport.Design.Designer())
+            //{                
+            //    designer.Report = report;
+            //    designer.Refresh();
+            //    designer.Show();
+            //}
+
 
             FormMessage formMessage = new FormMessage();
             formMessage.TopMost = true;            
