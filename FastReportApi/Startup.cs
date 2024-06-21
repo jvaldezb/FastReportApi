@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Owin;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
+using PrintConfiguration;
 
 namespace FastReportApi
 {
@@ -15,7 +17,8 @@ namespace FastReportApi
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder)
         {
-            var corsPolicy = new EnableCorsAttribute("*", "*", "*");
+
+            var corsPolicy = new EnableCorsAttribute(FormServer.configuracion.AllowedDomain1, FormServer.configuracion.AllowedDomain2, "*", "*");  
 
             // Configure Web API for self-host. 
             HttpConfiguration config = new HttpConfiguration();
@@ -23,13 +26,11 @@ namespace FastReportApi
             // Habilitar el enrutamiento de atributos
             config.MapHttpAttributeRoutes();
 
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
-
             config.EnableCors(corsPolicy);
+
+            // Agregar el mensaje delegador para la restricción de dominio
+            if (FormServer.configuracion.OnlyOrigin)
+                config.MessageHandlers.Add(new DomainRestrictionHandler());
 
             appBuilder.UseWebApi(config);
         }

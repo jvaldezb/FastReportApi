@@ -28,5 +28,8 @@ namespace PrintConfiguration
         // Propiedad para manejar la selección entre imprimir y diseñar
         public bool Imprimir { get; set; }
         public bool Disenar { get; set; }
+        public string AllowedDomain1 { get; set; }
+        public string AllowedDomain2 { get; set; }
+        public bool OnlyOrigin { get; set; }
     }
 }

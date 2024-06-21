@@ -40,7 +40,7 @@ namespace FastReportApi
         string _puerto = "55677";
         string _operacion;
         ReportCommand _reportCommand = ReportCommand.Print;
-        private Configuracion configuracion;
+        public static Configuracion configuracion;
 
         public string JsonData { get => _jsonData; }
         public string Impresora { get => _impresora; }
