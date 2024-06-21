@@ -40,3 +40,17 @@ D:\Cursos\Impresion\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguratio
 D:\Cursos\Impresion\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.csproj.CopyComplete
 D:\Cursos\Impresion\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.exe
 D:\Cursos\Impresion\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.pdb
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\configuracion.json
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\PrintConfiguration.exe.config
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\PrintConfiguration.exe
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\PrintConfiguration.pdb
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\Newtonsoft.Json.dll
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\bin\Debug\Newtonsoft.Json.xml
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.csproj.AssemblyReference.cache
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.FormConfiguracion.resources
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.Properties.Resources.resources
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.csproj.GenerateResource.cache
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.csproj.CoreCompileInputs.cache
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.csproj.CopyComplete
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.exe
+D:\Proyectos-personales\FastReportApi\PrintConfiguration\obj\Debug\PrintConfiguration.pdb

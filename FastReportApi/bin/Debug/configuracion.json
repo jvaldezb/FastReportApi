@@ -1,5 +1,9 @@
 {
   "puerto": "55677",
   "Imprimir": true,
-  "Disenar": false
+  "Disenar": false,
+  "AllowedDomain1": "*",
+  "AllowedDomain2": "*",
+  "OnlyOrigin": false
+
 }

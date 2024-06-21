@@ -135,6 +135,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainRestrictionHandler.cs" />
+    <Compile Include="FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +169,9 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\ImprimirController.cs" />
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMessage.resx">
       <DependentUpon>FormMessage.cs</DependentUpon>
     </EmbeddedResource>

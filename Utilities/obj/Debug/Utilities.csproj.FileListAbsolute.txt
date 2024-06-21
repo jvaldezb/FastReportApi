@@ -10,3 +10,9 @@ D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.csproj.AssemblyRefe
 D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.dll
 D:\Cursos\Impresion\WebPrinter\Utilities\obj\Debug\Utilities.pdb
+D:\Proyectos-personales\FastReportApi\Utilities\bin\Debug\Utilities.dll
+D:\Proyectos-personales\FastReportApi\Utilities\bin\Debug\Utilities.pdb
+D:\Proyectos-personales\FastReportApi\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+D:\Proyectos-personales\FastReportApi\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+D:\Proyectos-personales\FastReportApi\Utilities\obj\Debug\Utilities.dll
+D:\Proyectos-personales\FastReportApi\Utilities\obj\Debug\Utilities.pdb
